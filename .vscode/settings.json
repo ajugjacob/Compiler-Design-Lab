@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "NFA.C": "cpp",
+        "DFA.C": "cpp"
+    }
+}

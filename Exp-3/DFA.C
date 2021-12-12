@@ -58,6 +58,7 @@ int main()
             printf("\nd(q%d,%c) : ", i,d.inputSymbols[j]);
             scanf(" %d",&d.delta[i][j]);
         }
+
     // print the transition table
     // print the symbols as columns of transition table
     for(int i=0;i<d.noi;i++)
@@ -70,6 +71,7 @@ int main()
         }
         printf("\n");
     }
+    char ch = 'n';
     do {
         char string[10]; 
         printf("\nEnter a string: ");
@@ -90,6 +92,6 @@ int main()
         else {
             printf("%s is not accpeted. ",string);
         }
-    }while(1); 
+    } while(1); 
     return 0;
 }
