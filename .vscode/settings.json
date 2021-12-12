@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "NFA.C": "cpp",
-        "DFA.C": "cpp",
-        "NFA-to-DFA.C": "cpp",
-        "Descent-Parser.C": "cpp",
-        "sample.C": "cpp"
-    }
-}
