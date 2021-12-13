@@ -14,10 +14,10 @@ int main()
     printf("Enter an arithmetic expression :\n");
     scanf("%s",input);
     E();
-    if(strlen(input)==i&&error==0)
-    printf("\nAccepted..!!!");
+    if(strlen(input)==i && error==0)
+        printf("\nAccepted..!!!");
     else
-    printf("\nRejected..!!!");
+        printf("\nRejected..!!!");
     return 0;
 }
 
