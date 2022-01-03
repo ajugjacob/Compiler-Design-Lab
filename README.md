@@ -10,7 +10,7 @@
 
 ### Cycle 2
 - [x] Implement intermediate code generation for simple expressions
-- [ ] Write LEX program to identity the tokens like keywords, identifiers, numbers, operators and punctuation symbols
+- [x] Write LEX program to identity the tokens like keywords, identifiers, numbers, operators and punctuation symbols
 - [ ] Write a LEX program to remove single line and multi line comments
 - [ ] Implementation of calculator using LEX and YACC
 - [ ] Implement a YACC program to recognize strings of the form a^nb^n
