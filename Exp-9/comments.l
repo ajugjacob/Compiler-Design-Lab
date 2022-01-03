@@ -6,7 +6,7 @@
 %%
 \/\/(.*) {};
 \/\*(.*\n)*.*\*\/  {};
-.	 { fprintf(yyout, "%s", yytext); }
+.	 {fprintf(yyout, "%s", yytext);}
 %%
 
 int yywrap(){
