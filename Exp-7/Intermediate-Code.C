@@ -1,46 +1,45 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
-char op[2],arg1[5],arg2[5],result[5];
+void gen_code_for_operator(char *inp, char op, char* reg)
+{
+    int i = 0, j = 0; // j is used as an index of temp, i is used as an index of inp
+    char temp[100];
+    while (inp[i] != '\0')
+    {
+        if (inp[i] == op)
+        {
+            printf("%c\t%c\t%c\t%c\n", op, *reg, inp[i - 1], inp[i + 1]);
+            temp[j - 1] = *reg; // Instead of copying a/b to the temp string, copy the output register Z
+            i += 2;
+            (*reg)--; // Change register from Z to Y etc
+            continue;
+        }
+        temp[j] = inp[i];
+        i++;
+        j++;
+    }
+    temp[++j] = '\0';
+    strcpy(inp, temp);
+}
+
+void gen_code(char *inp)
+{
+    // Operator precendence - /, *, +, -, =
+    char reg = 'Z'; // Decremented to get Z, Y etc
+
+    gen_code_for_operator(inp, '/', &reg);
+    gen_code_for_operator(inp, '*', &reg);
+    gen_code_for_operator(inp, '+', &reg);
+    gen_code_for_operator(inp, '-', &reg);
+    gen_code_for_operator(inp, '=', &reg);
+}
 
 int main()
 {
-  FILE *fp1,*fp2;
-  fp1=fopen("input.txt","r");
-  fp2=fopen("output.txt","w");
-  while(!feof(fp1))
-  {
-    fscanf(fp1,"%s%s%s%s",op,arg1,arg2,result);
-    if(strcmp(op,"+")==0) {
-      fprintf(fp2,"\nMOV R0,%s",arg1);
-      fprintf(fp2,"\nADD R0,%s",arg2);
-      fprintf(fp2,"\nMOV %s,R0",result);
-    }
-
-    if(strcmp(op,"*")==0) {
-      fprintf(fp2,"\nMOV R0,%s",arg1);
-      fprintf(fp2,"\nMUL R0,%s",arg2);
-      fprintf(fp2,"\nMOV %s,R0",result);
-    }
-
-    if(strcmp(op,"-")==0) {
-      fprintf(fp2,"\nMOV R0,%s",arg1);
-      fprintf(fp2,"\nSUB R0,%s",arg2);
-      fprintf(fp2,"\nMOV %s,R0",result);
-    }
-
-    if(strcmp(op,"/")==0) {
-      fprintf(fp2,"\nMOV R0,%s",arg1);
-      fprintf(fp2,"\nDIV R0,%s",arg2);
-      fprintf(fp2,"\nMOV %s,R0",result);
-    }
-
-    if(strcmp(op,"=")==0) {
-      fprintf(fp2,"\nMOV R0,%s",arg1);
-      fprintf(fp2,"\nMOV %s,R0",result);
-    }
-  }
-  fclose(fp1);
-  fclose(fp2);
-  return 0;
+    char inp[100];
+    printf("Enter expression:\n\n");
+    scanf("%s", inp);
+    printf("Oprtr\tDestn\tOp1\tOp2\n");
+    gen_code(inp);
 }

@@ -70,5 +70,3 @@ void F()
     else
         error=1;
 }
-
-

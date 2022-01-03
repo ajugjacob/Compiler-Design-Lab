@@ -12,7 +12,7 @@ auto|double|int|struct|break|else|long|switch|case|enum|register|typedef|char|ex
 
 ([a-zA-Z][0-9])+|[a-zA-Z]* {ECHO; printf("\tIDENTIFIER\n");}  
 
-^[0-9]* {ECHO; printf("\tNUMBER\n");}
+[0-9]* {ECHO; printf("\tNUMBER\n");}
 
 .|\n ; 															
 %%
