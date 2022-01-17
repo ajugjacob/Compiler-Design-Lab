@@ -13,4 +13,4 @@
 - [x] Write LEX program to identity the tokens like keywords, identifiers, numbers, operators and punctuation symbols
 - [x] Write a LEX program to remove single line and multi line comments
 - [x] Implementation of calculator using LEX and YACC
-- [x] Implement a YACC program to recognize strings of the form $$a^nb^n$$
+- [x] Implement a YACC program to recognize strings of the form ![equation](http://www.sciweavers.org/tex2img.php?eq=a%5En%20b%5En&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
